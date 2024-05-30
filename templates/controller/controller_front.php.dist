@@ -1,13 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 /**
- * Webkul Software.
- *
- * @category  Webkul
- * @package   %module_name%
- * @author    Webkul
- * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
- * @license   https://store.webkul.com/license.html
+ * Copyright © Vaimo Group. All rights reserved.
+ * See LICENSE_VAIMO.txt for license details.
  */
+
 namespace %namespace%;
 
 use Magento\Framework\App\Action\Action;
@@ -17,11 +13,6 @@ use Magento\Framework\View\Result\PageFactory;
 class %class_name% extends Action
 {
     /**
-     * @var PageFactory
-     */
-    protected $_resultPageFactory;
-
-    /**
      * initialization
      *
      * @param Context $context
@@ -29,9 +20,8 @@ class %class_name% extends Action
      */
     public function __construct(
         Context $context,
-        PageFactory $resultPageFactory
+        protected PageFactory $resultPageFactory
     ) {
-        $this->_resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
     
@@ -42,10 +32,11 @@ class %class_name% extends Action
      */
     public function execute()
     {
-        $resultPage = $this->_resultPageFactory->create();
+        $resultPage = $this->resultPageFactory->create();
         $pageLabel = "";
         $resultPage->getConfig()->getTitle()->set(__($pageLabel));
         $layout = $resultPage->getLayout();
+        
         return $resultPage;
     }
 }

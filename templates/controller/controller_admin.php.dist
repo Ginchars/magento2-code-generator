@@ -1,48 +1,33 @@
-<?php
+<?php declare(strict_types=1);
 /**
- * Webkul Software.
- *
- * @category  Webkul
- * @package   %module_name%
- * @author    Webkul
- * @copyright Copyright (c) Webkul Software Private Limited (https://webkul.com)
- * @license   https://store.webkul.com/license.html
+ * Copyright © Vaimo Group. All rights reserved.
+ * See LICENSE_VAIMO.txt for license details.
  */
+
 namespace %namespace%;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Backend\Model\View\Result\ForwardFactory;
 
 class %class_name% extends Action
 {
     public const ADMIN_RESOURCE = "%resource_name%";
 
     /**
-     * @var PageFactory
-     */
-    protected $resultPageFactory;
-
-    /**
-     * @var \Magento\Backend\Model\View\Result\ForwardFactory
-     */
-    protected $resultForwardFactory;
-
-    /**
      * initialization
      *
      * @param Context $context
      * @param PageFactory $resultPageFactory
-     * @param \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
+     * @param ForwardFactory $resultForwardFactory
      */
     public function __construct(
         Context $context,
-        PageFactory $resultPageFactory,
-        \Magento\Backend\Model\View\Result\ForwardFactory $resultForwardFactory
+        protected PageFactory $resultPageFactory,
+        protected ForwardFactory $resultForwardFactory
     ) {
         parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
-        $this->resultForwardFactory = $resultForwardFactory;
     }
 
     /**
@@ -54,6 +39,7 @@ class %class_name% extends Action
     {
         $resultPage = $this->resultPageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend(__(''));
+        
         return $resultPage;
     }
 }

@@ -1,14 +1,8 @@
 <?php
 /**
- * Webkul Software.
- *
- * @category   Webkul
- * @package    %module_name%
- * @author     Webkul
- * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
- * @license    https://store.webkul.com/license.html
+ * Copyright © Vaimo Group. All rights reserved.
+ * See LICENSE_VAIMO.txt for license details.
  */
 
-// $block %block%
+/** @var %block% $block */
 ?>
-<?= $block->getHelloMessage(); ?>

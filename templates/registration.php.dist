@@ -1,15 +1,13 @@
-<?php
+<?php declare(strict_types=1);
 /**
- * Webkul Software.
- *
- * @category   Webkul
- * @package    %moduleName%
- * @author     Webkul
- * @copyright  Copyright (c) Webkul Software Private Limited (https://webkul.com)
- * @license    https://store.webkul.com/license.html
+ * Copyright © Vaimo Group. All rights reserved.
+ * See LICENSE_VAIMO.txt for license details.
  */
-\Magento\Framework\Component\ComponentRegistrar::register(
-    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
     '%moduleName%',
     __DIR__
 );
